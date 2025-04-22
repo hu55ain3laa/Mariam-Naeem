@@ -26,11 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (open) {
             mobileMenu.classList.add('active');
             body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            body.style.position = 'fixed'; // Fix the body position
+            body.style.width = '100%'; // Ensure body width is 100%
             menuToggle.style.display = 'none'; // Hide the menu toggle when open
             
         } else {
             mobileMenu.classList.remove('active');
             body.style.overflow = ''; // Restore scrolling
+            body.style.position = ''; // Restore position
+            body.style.width = ''; // Restore width
             menuToggle.style.display = ''; // Show the menu toggle when closed
         }
     }
