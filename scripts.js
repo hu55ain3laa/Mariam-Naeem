@@ -3,7 +3,7 @@ AOS.init({
 once: false,
 mirror: true,
 anchorPlacement: 'top-bottom',
-// disable: 'phone', // Animations now enabled on phones
+disable: 'phone', // Animations now enabled on phones
 throttleDelay: 99, // Lower throttle delay for better performance
 disableMutationObserver: false,
 startEvent: 'DOMContentLoaded',
