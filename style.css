@@ -940,6 +940,7 @@ p {
   }
 }
 
+
 /* Keep a few essential media queries */
 @media screen and (min-width: 769px) {
   .hamburger {
