@@ -1,211 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team Member - Iraq Team</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        purple: {
-                            light: '#8543af',
-                            DEFAULT: '#5f2b7e',
-                            dark: '#4a2163',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              purple: {
+                light: "#8543af",
+                DEFAULT: "#5f2b7e",
+                dark: "#4a2163",
+              },
+            },
+            animation: {
+              float: "float 3s ease-in-out infinite",
+              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="py-8 px-4 sm:py-16">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="py-8 px-4 sm:py-16">
     <!-- Particles.js background -->
     <div id="particles-js"></div>
-    
+
     <!-- Header -->
-    <header class="glass-header sticky top-0 z-50 left-0 right-0 mx-auto max-w-7xl rounded-lg" data-aos="fade-down" data-aos-duration="800">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4 sm:space-x-6 logo-container">
-                <img src="assets/codeavour.png" alt="Codeavour Logo" class="logo-size-codeavour animate-pulse-slow">
-                <img src="assets/iraq.png" alt="Iraq Team Logo" class="logo-size-iraq animate-pulse-slow">
-            </div>
-            
-            <!-- Hamburger Menu Button -->
-            <button class="hamburger block md:hidden focus:outline-none p-2 rounded-md transition-colors duration-300" aria-label="Menu" id="menu-toggle">
-                <div class="relative w-6 h-5 transform transition-all duration-300">
-                    <span class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 rotate-0 top-0"></span>
-                    <span class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 opacity-100 mt-2"></span>
-                    <span class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 rotate-0 mt-4"></span>
-                </div>
-            </button>
-            
-            <!-- Mobile Navigation Menu -->
-            <nav class="nav-menu fixed md:hidden" id="mobile-menu">
-                <button id="close-menu-button" class="absolute top-4 right-4 text-gray-700 hover:text-purple-light transition p-2" aria-label="Close menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <ul class="flex flex-col space-y-4 mt-4 px-6">
-                    <li><a href="#about" class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2">About</a></li>
-                    <li><a href="#project" class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2">Project</a></li>
-                    <li><a href="#gallery" class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2">Project Gallery</a></li>
-                    <li><a href="#video" class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2">Project Video</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8">
-                    <li><a href="#about" class="text-gray-700 hover:text-purple-light transition nav-link">About</a></li>
-                    <li><a href="#project" class="text-gray-700 hover:text-purple-light transition nav-link">Project</a></li>
-                    <li><a href="#gallery" class="text-gray-700 hover:text-purple-light transition nav-link">Project Gallery</a></li>
-                    <li><a href="#video" class="text-gray-700 hover:text-purple-light transition nav-link">Project Video</a></li>
-                </ul>
-            </nav>
+    <header
+      class="glass-header sticky top-0 z-50 left-0 right-0 mx-auto max-w-7xl rounded-lg"
+      data-aos="fade-down"
+      data-aos-duration="800"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-4 sm:space-x-6 logo-container">
+          <img
+            src="assets/codeavour.png"
+            alt="Codeavour Logo"
+            class="logo-size-codeavour animate-pulse-slow"
+          />
+          <img
+            src="assets/iraq.png"
+            alt="Iraq Team Logo"
+            class="logo-size-iraq animate-pulse-slow"
+          />
         </div>
+
+        <!-- Hamburger Menu Button -->
+        <button
+          class="hamburger block md:hidden focus:outline-none p-2 rounded-md transition-colors duration-300"
+          aria-label="Menu"
+          id="menu-toggle"
+        >
+          <div class="relative w-6 h-5 transform transition-all duration-300">
+            <span
+              class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 rotate-0 top-0"
+            ></span>
+            <span
+              class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 opacity-100 mt-2"
+            ></span>
+            <span
+              class="absolute h-0.5 w-6 bg-purple transform transition-all duration-300 rotate-0 mt-4"
+            ></span>
+          </div>
+        </button>
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="nav-menu fixed md:hidden" id="mobile-menu">
+          <button
+            id="close-menu-button"
+            class="absolute top-4 right-4 text-gray-700 hover:text-purple-light transition p-2"
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <ul class="flex flex-col space-y-4 mt-4 px-6">
+            <li>
+              <a
+                href="#about"
+                class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#project"
+                class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2"
+                >Project</a
+              >
+            </li>
+            <li>
+              <a
+                href="#gallery"
+                class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2"
+                >Project Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video"
+                class="block text-gray-700 hover:text-purple-light transition nav-link text-lg py-2"
+                >Project Video</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li>
+              <a
+                href="#about"
+                class="text-gray-700 hover:text-purple-light transition nav-link"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#project"
+                class="text-gray-700 hover:text-purple-light transition nav-link"
+                >Project</a
+              >
+            </li>
+            <li>
+              <a
+                href="#gallery"
+                class="text-gray-700 hover:text-purple-light transition nav-link"
+                >Project Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video"
+                class="text-gray-700 hover:text-purple-light transition nav-link"
+                >Project Video</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- Member Profile Section -->
     <section class="container mx-auto max-w-7xl mt-8">
-        <div class="section-container shadow-lg mb-12" data-aos="fade-up" data-aos-duration="1000">
-            <!-- Hero Banner -->
-            <div class="relative h-[250px] sm:h-[300px] md:h-[350px] bg-[#5f2b7e] hero-section">
-                <!-- Animated circles -->
-                <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-                    <div class="animated-circle absolute"></div>
-                    <div class="animated-circle absolute" style="animation-delay: 0.5s;"></div>
-                    <div class="animated-circle absolute" style="animation-delay: 1s;"></div>
-                    <div class="animated-circle absolute" style="animation-delay: 1.5s;"></div>
-                </div>
-                
-                <div class="absolute inset-0 flex items-center justify-center z-10">
-                    <img src="assets/a2.png" alt="Team Member" class="w-[250px] sm:w-[300px] md:w-[400px] h-auto object-contain animate-float relative">
-                </div>
-            </div>
-            
-            <!-- Info Section -->
-            <div id="about" class="pt-10 pb-8 px-4 sm:px-10">
-                <h1 class="text-3xl sm:text-4xl font-bold text-purple-dark mb-2 text-center" data-aos="fade-up" data-aos-duration="800">Mariam Naeem Khudada</h1>
-                <p class="text-gray-600 text-lg sm:text-xl mb-6 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">Role: Developer</p>
-                
-                <div class="mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <h2 class="text-xl sm:text-2xl font-bold text-purple-dark section-title">About</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.
-                    </p>
-                </div>
-                
-                <div class="flex flex-col md:flex-row flex-col-mobile gap-md justify-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                    <a href="#" onclick="downloadFile('./assets/cv.docx', 'cv.docx'); return false;" class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                        </svg>
-                        Download CV
-                    </a>
-                    <a href="#" onclick="downloadFile('./assets/pre.pptx', 'presentation.pptx'); return false;" class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Download Presentation
-                    </a>
-                    <a href="https://github.com/mariam-naeem" target="_blank" class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                        GitHub Repository
-                    </a>
-                </div>
-            </div>
+      <div
+        class="section-container shadow-lg mb-12"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <!-- Hero Banner -->
+        <div
+          class="relative h-[250px] sm:h-[300px] md:h-[350px] bg-[#5f2b7e] hero-section"
+        >
+          <!-- Animated circles -->
+          <div
+            class="absolute inset-0 flex items-center justify-center overflow-hidden"
+          >
+            <div class="animated-circle absolute"></div>
+            <div
+              class="animated-circle absolute"
+              style="animation-delay: 0.5s"
+            ></div>
+            <div
+              class="animated-circle absolute"
+              style="animation-delay: 1s"
+            ></div>
+            <div
+              class="animated-circle absolute"
+              style="animation-delay: 1.5s"
+            ></div>
+          </div>
+
+          <div class="absolute inset-0 flex items-center justify-center z-10">
+            <img
+              src="assets/a2.png"
+              alt="Team Member"
+              class="w-[250px] sm:w-[300px] md:w-[400px] h-auto object-contain animate-float relative"
+            />
+          </div>
         </div>
-        
-        <!-- Project Section -->
-        <div id="project" class="section-container p-4 sm:p-10 mb-12" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="text-xl sm:text-2xl font-bold text-purple-dark section-title mx-auto text-center">Project</h2>
-            <div class="glass-card p-4 sm:p-8 rounded-lg transition">
-                <h3 class="text-xl sm:text-2xl font-bold text-purple-dark mb-4 text-center" data-aos="fade-right" data-aos-duration="800">Project Name</h3>
-                <div class="flex flex-col md:flex-row flex-col-mobile gap-md items-center justify-center">
-                    <div class="w-full md:w-1/3 flex justify-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                        <img src="assets/a2.png" alt="Project Image" class="w-full h-auto rounded-lg shadow-lg">
-                    </div>
-                    <div class="w-full md:w-2/3 text-center">
-                        <div class="mb-4" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-                            <h4 class="text-lg font-semibold text-purple mb-2">Description</h4>
-                            <p class="text-gray-700 mb-4">The project focuses on using Artificial Intelligence (AI) to diagnose brain tumors through MRI images and raise awareness about different types of brain tumors. It aims to provide a diagnostic process, including early symptom identification, tumor types, and preventive measures. The project is designed to assist doctors, medical students and raise awareness among the general public.</p>
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="flex justify-center">
-                            <a href="#video" class="inline-block bg-purple text-white py-2 px-6 rounded-lg hover:bg-purple-dark transition">View Project</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        <!-- Info Section -->
+        <div id="about" class="pt-10 pb-8 px-4 sm:px-10">
+          <h1
+            class="text-3xl sm:text-4xl font-bold text-purple-dark mb-2 text-center"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            Mariam Naeem Khudada
+          </h1>
+          <p
+            class="text-gray-600 text-lg sm:text-xl mb-6 text-center"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
+            Role: Developer
+          </p>
+
+          <div
+            class="mb-8"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="200"
+          >
+            <h2
+              class="text-xl sm:text-2xl font-bold text-purple-dark section-title"
+            >
+              About
+            </h2>
+            <p class="text-gray-700 leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
+              dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed
+              auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in
+              nulla enim. Phasellus molestie magna non est bibendum non
+              venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.
+              Mauris iaculis porttitor posuere. Praesent id metus massa, ut
+              blandit odio.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row flex-col-mobile gap-md justify-center"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+          >
+            <a
+              href="#"
+              onclick="downloadFile('./assets/cv.docx', 'cv.docx'); return false;"
+              class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                />
+              </svg>
+              Download CV
+            </a>
+            <a
+              href="#"
+              onclick="downloadFile('./assets/pre.pptx', 'presentation.pptx'); return false;"
+              class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              Download Presentation
+            </a>
+          </div>
         </div>
-        
-        <!-- Project Gallery Section -->
-        <div id="gallery" class="section-container p-4 sm:p-10 mb-12" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="text-xl sm:text-2xl font-bold text-purple-dark section-title">Project Gallery</h2>
-            <div class="grid">
-                <img src="assets/a1.png" alt="Project Image 1" class="rounded-lg shadow-lg transition gallery-image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                <img src="assets/a1.png" alt="Project Image 2" class="rounded-lg shadow-lg transition gallery-image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
-                <img src="assets/a1.png" alt="Project Image 3" class="rounded-lg shadow-lg transition gallery-image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+      </div>
+
+      <!-- Project Section -->
+      <div
+        id="project"
+        class="section-container p-4 sm:p-10 mb-12"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h2
+          class="text-xl sm:text-2xl font-bold text-purple-dark section-title mx-auto text-center"
+        >
+          Project
+        </h2>
+        <div class="glass-card p-4 sm:p-8 rounded-lg transition">
+          <h3
+            class="text-xl sm:text-2xl font-bold text-purple-dark mb-4 text-center"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
+            Project Name
+          </h3>
+          <div
+            class="flex flex-col md:flex-row flex-col-mobile gap-md items-center justify-center"
+          >
+            <div
+              class="w-full md:w-1/3 flex justify-center"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/a2.png"
+                alt="Project Image"
+                class="w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
-        </div>
-            
-        <!-- Project Video Section -->
-        <div id="video" class="section-container p-4 sm:p-10 mb-12" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="text-xl sm:text-2xl font-bold text-purple-dark section-title">Project Video</h2>
-            <div class="video-container" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                <iframe class="w-full rounded-lg" src="https://www.youtube.com/embed/AAZ7EY58gaM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="w-full md:w-2/3 text-center">
+              <div
+                class="mb-4"
+                data-aos="fade-left"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
+                <h4 class="text-lg font-semibold text-purple mb-2">
+                  Description
+                </h4>
+                <p class="text-gray-700 mb-4">
+                  The project focuses on using Artificial Intelligence (AI) to
+                  diagnose brain tumors through MRI images and raise awareness
+                  about different types of brain tumors. It aims to provide a
+                  diagnostic process, including early symptom identification,
+                  tumor types, and preventive measures. The project is designed
+                  to assist doctors, medical students and raise awareness among
+                  the general public.
+                </p>
+              </div>
+              <div
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
+                class="flex justify-center"
+              >
+                <a
+                  href="#video"
+                  class="inline-block bg-purple text-white py-2 px-6 rounded-lg hover:bg-purple-dark transition"
+                  >View Project</a
+                >
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Project Gallery Section -->
+      <div
+        id="gallery"
+        class="section-container p-4 sm:p-10 mb-12"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h2
+          class="text-xl sm:text-2xl font-bold text-purple-dark section-title"
+        >
+          Project Gallery
+        </h2>
+        <div class="grid">
+          <img
+            src="assets/a1.png"
+            alt="Project Image 1"
+            class="rounded-lg shadow-lg transition gallery-image"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          />
+          <img
+            src="assets/a1.png"
+            alt="Project Image 2"
+            class="rounded-lg shadow-lg transition gallery-image"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="200"
+          />
+          <img
+            src="assets/a1.png"
+            alt="Project Image 3"
+            class="rounded-lg shadow-lg transition gallery-image"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="300"
+          />
+        </div>
+      </div>
+
+      <!-- Project Video Section -->
+      <div
+        id="video"
+        class="section-container p-4 sm:p-10 mb-12"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h2
+          class="text-xl sm:text-2xl font-bold text-purple-dark section-title"
+        >
+          Project Video
+        </h2>
+        <div
+          class="video-container"
+          data-aos="zoom-in"
+          data-aos-duration="800"
+          data-aos-delay="100"
+        >
+          <iframe
+            class="w-full rounded-lg"
+            src="https://www.youtube.com/embed/AAZ7EY58gaM"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </section>
 
     <!-- Sponsors Section -->
-    <section class="container mx-auto max-w-7xl mb-12" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-container p-4 sm:p-10">
-            <h2 class="text-xl sm:text-2xl font-bold text-purple-dark section-title">Sponsors</h2>
-            <div class="flex justify-center items-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                <img src="assets/footer.png" alt="Sponsors" class="max-w-full h-auto">
-            </div>
+    <section
+      class="container mx-auto max-w-7xl mb-12"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <div class="section-container p-4 sm:p-10">
+        <h2
+          class="text-xl sm:text-2xl font-bold text-purple-dark section-title"
+        >
+          Sponsors
+        </h2>
+        <div
+          class="flex justify-center items-center"
+          data-aos="zoom-in"
+          data-aos-duration="800"
+          data-aos-delay="100"
+        >
+          <img
+            src="assets/footer.png"
+            alt="Sponsors"
+            class="max-w-full h-auto"
+          />
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="glass-footer text-white py-8 rounded-lg max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="800">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <img src="assets/codeavour.png" alt="Codeavour Logo" class="h-8 sm:h-12 invert">
-                </div>
-                <div class="text-center md:text-right">
-                    <p>© 2025 Team Iraq - Codeavour 6. All rights reserved.</p>
-                </div>
-            </div>
+    <footer
+      class="glass-footer text-white py-8 rounded-lg max-w-7xl mx-auto"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <img
+              src="assets/codeavour.png"
+              alt="Codeavour Logo"
+              class="h-8 sm:h-12 invert"
+            />
+          </div>
+          <div class="text-center md:text-right">
+            <p>© 2025 Team Iraq - Codeavour 6. All rights reserved.</p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <!-- Particles.js for neural network animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
+
     <script src="./scripts.js"></script>
-</body>
-</html> 
+  </body>
+</html>
