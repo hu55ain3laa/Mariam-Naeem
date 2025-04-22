@@ -4,7 +4,80 @@ once: false,
 mirror: true,
 anchorPlacement: 'top-bottom',
 // disable: 'phone', // Animations now enabled on phones
-throttleDelay: 99 // Lower throttle delay for better performance
+throttleDelay: 99, // Lower throttle delay for better performance
+disableMutationObserver: false,
+startEvent: 'DOMContentLoaded',
+offset: 50, // Smaller offset to trigger animations earlier
+delay: 0, // No delay for animations to start
+duration: 800, // Standard duration for all animations
+easing: 'ease-out' // Smoother easing
+});
+
+// Fix AOS-related scrolling issues
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all elements with AOS attributes
+  const aosElements = document.querySelectorAll('[data-aos]');
+  
+  // Override any overflow styles AOS might apply
+  aosElements.forEach(element => {
+    // Add event listener for when animation starts/ends
+    element.addEventListener('aos:in', function() {
+      // Force overflow to be visible for this element
+      element.style.overflow = 'visible';
+    });
+    
+    // Set initial overflow to visible
+    element.style.overflow = 'visible';
+  });
+  
+  // Special handling for footer section and last elements
+  const footerSection = document.querySelector('footer');
+  const lastSections = document.querySelectorAll('section:last-of-type, .section-container:last-of-type');
+  
+  // If there's a footer with AOS, ensure it behaves correctly
+  if (footerSection && footerSection.getAttribute('data-aos')) {
+    // Make sure footer has proper overflow
+    footerSection.style.overflow = 'visible';
+    
+    // Add specific animation completion handler
+    footerSection.addEventListener('aos:in', function() {
+      footerSection.style.transform = 'none';
+      footerSection.style.opacity = '1';
+    });
+  }
+  
+  // Handle last sections to prevent scrolling issues
+  lastSections.forEach(section => {
+    if (section.getAttribute('data-aos')) {
+      section.style.overflow = 'visible';
+      
+      // Force animation completion when close to bottom
+      window.addEventListener('scroll', function() {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // If the section is within 200px of the viewport bottom
+        if (rect.top < windowHeight + 200) {
+          // Force animation to complete
+          if (section.classList.contains('aos-animate') === false) {
+            section.classList.add('aos-animate');
+            section.style.transform = 'none';
+            section.style.opacity = '1';
+          }
+        }
+      }, { passive: true });
+    }
+  });
+  
+  // Fix for iOS scroll restoration issues
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    window.addEventListener('scroll', function() {
+      // Do minimal work in scroll event
+      requestAnimationFrame(function() {
+        document.body.style.overflow = 'auto';
+      });
+    }, { passive: true });
+  }
 });
 
 // Mobile menu functionality
@@ -23,19 +96,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to toggle menu
     function toggleMenu(open) {
+        if (!mobileMenu) return; // Safety check
+        
         if (open) {
             mobileMenu.classList.add('active');
             body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
             body.style.position = 'fixed'; // Fix the body position
             body.style.width = '100%'; // Ensure body width is 100%
-            menuToggle.style.display = 'none'; // Hide the menu toggle when open
+            body.style.top = `-${window.scrollY}px`; // Maintain scroll position
+            if (menuToggle) menuToggle.style.display = 'none'; // Hide the menu toggle when open
             
         } else {
             mobileMenu.classList.remove('active');
+            const scrollY = body.style.top;
             body.style.overflow = ''; // Restore scrolling
             body.style.position = ''; // Restore position
             body.style.width = ''; // Restore width
-            menuToggle.style.display = ''; // Show the menu toggle when closed
+            body.style.top = ''; // Restore top position
+            if (menuToggle) menuToggle.style.display = ''; // Show the menu toggle when closed
+            
+            // Restore scroll position
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
         }
     }
 
@@ -43,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent event bubbling
             toggleMenu(true);
         });
     }
@@ -51,30 +135,33 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeMenu && mobileMenu) {
         closeMenu.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent event bubbling
             toggleMenu(false);
         });
     }
 
     // Close menu when clicking on links - with optimizations for mobile
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            const target = document.querySelector(href);
-            
-            // First close the menu
-            toggleMenu(false);
-            
-            // Then scroll to the section after a small delay
-            if (target) {
-                setTimeout(() => {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }, 100); // Reduced delay for better UX
-            }
+    if (mobileLinks && mobileLinks.length > 0) {
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                
+                // First close the menu
+                toggleMenu(false);
+                
+                // Then scroll to the section after a small delay
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100); // Reduced delay for better UX
+                }
+            });
         });
-    });
+    }
 
     // Optimize event listener for mobile
     let touchStartX = 0;
@@ -87,24 +174,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('touchend', function(e) {
         touchEndX = e.changedTouches[0].screenX;
-        if (mobileMenu.classList.contains('active') && touchStartX < touchEndX && touchEndX - touchStartX > 50) {
+        if (mobileMenu && mobileMenu.classList.contains('active') && 
+            touchStartX < touchEndX && touchEndX - touchStartX > 50) {
             toggleMenu(false);
         }
     }, {passive: true});
 
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active') && 
+        if (mobileMenu && mobileMenu.classList.contains('active') && 
             !mobileMenu.contains(e.target) && 
-            e.target !== menuToggle &&
-            !menuToggle.contains(e.target)) {
+            (menuToggle === null || e.target !== menuToggle) &&
+            (menuToggle === null || !menuToggle.contains(e.target))) {
             toggleMenu(false);
         }
     });
 
     // Close menu on escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        if (mobileMenu && e.key === 'Escape' && mobileMenu.classList.contains('active')) {
             toggleMenu(false);
         }
     });
@@ -113,12 +201,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
     
     function handleScreenChange(e) {
-        if (e.matches && mobileMenu.classList.contains('active')) {
+        if (mobileMenu && e.matches && mobileMenu.classList.contains('active')) {
             toggleMenu(false);
         }
     }
     
     mediaQuery.addEventListener('change', handleScreenChange);
+    
+    // Ensure menu toggle is visible on page load/reload
+    if (menuToggle) {
+        window.addEventListener('pageshow', function(e) {
+            if (mobileMenu && !mobileMenu.classList.contains('active')) {
+                menuToggle.style.display = '';
+            }
+        });
+    }
+    
+    // Fix for iOS Safari
+    window.addEventListener('orientationchange', function() {
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            setTimeout(function() {
+                document.documentElement.scrollTop = 0;
+            }, 50);
+        }
+    });
 });
 
 // File download function
