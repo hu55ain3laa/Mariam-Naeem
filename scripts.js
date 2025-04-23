@@ -2,8 +2,7 @@
 AOS.init({
 once: false,
 mirror: true,
-anchorPlacement: 'top-bottom',
-disable: 'phone', // Animations now enabled on phones
+anchorPlacement: 'top-bottom', // Animations now enabled on phones
 throttleDelay: 99, // Lower throttle delay for better performance
 disableMutationObserver: false,
 startEvent: 'DOMContentLoaded',
@@ -311,10 +310,10 @@ fetch(fileUrl)
 particlesJS("particles-js", {
 "particles": {
     "number": {
-        "value": 80,
+        "value": 50,
         "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 900
         }
     },
     "color": {
@@ -328,7 +327,7 @@ particlesJS("particles-js", {
         },
     },
     "opacity": {
-        "value": 0.4,
+        "value": 0.5,
         "random": false,
         "anim": {
             "enable": false
@@ -343,9 +342,9 @@ particlesJS("particles-js", {
     },
     "line_linked": {
         "enable": true,
-        "distance": 150,
+        "distance": 160,
         "color": "#8543af",
-        "opacity": 0.3,
+        "opacity": 0.4,
         "width": 1
     },
     "move": {
@@ -366,7 +365,7 @@ particlesJS("particles-js", {
             "mode": "grab"
         },
         "onclick": {
-            "enable": true,
+            "enable": false,
             "mode": "push"
         },
         "resize": true
@@ -383,7 +382,7 @@ particlesJS("particles-js", {
         }
     }
 },
-"retina_detect": true
+"retina_detect": false
 });
 
 // JavaScript for smooth scrolling
