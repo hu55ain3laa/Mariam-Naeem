@@ -387,30 +387,36 @@
           Project Gallery
         </h2>
         <div class="grid" style="overflow: hidden">
-          <img
-            src="assets/a1.png"
-            alt="Project Image 1"
-            class="rounded-lg shadow-lg transition gallery-image"
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="100"
-          />
-          <img
-            src="assets/a1.png"
-            alt="Project Image 2"
-            class="rounded-lg shadow-lg transition gallery-image"
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          />
-          <img
-            src="assets/a1.png"
-            alt="Project Image 3"
-            class="rounded-lg shadow-lg transition gallery-image"
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="300"
-          />
+          <div class="gallery-item" style="overflow: hidden;">
+            <img
+              src="./assets/projectdemo.webp"
+              alt="Brain MRI Scan" 
+              class="rounded-lg shadow-lg transition gallery-image"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            />
+          </div>
+          <div class="gallery-item" style="overflow: hidden;">
+            <img
+              src="./assets/projectdemo.webp"
+              alt="AI Brain Tumor Detection"
+              class="rounded-lg shadow-lg transition gallery-image"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            />
+          </div>
+          <div class="gallery-item" style="overflow: hidden;">
+            <img
+              src="./assets/projectdemo.webp"
+              alt="AI Neural Network Medical Analysis"
+              class="rounded-lg shadow-lg transition gallery-image"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            />
+          </div>
         </div>
       </div>
 
@@ -484,6 +490,12 @@
         </div>
       </div>
     </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox" class="lightbox">
+      <button id="lightboxClose" class="lightbox-close">&times;</button>
+      <img id="lightboxImage" class="lightbox-content" src="" alt="Enlarged Image">
+    </div>
 
     <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
