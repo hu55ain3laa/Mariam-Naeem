@@ -430,7 +430,7 @@ body {
 /* Improved Responsive Styles */
 @media screen and (max-width: 900px) {
   .logo-size-iraq {
-    width: 80px;
+    width: 100px;
   }
 
   .logo-size-codeavour {
@@ -530,7 +530,7 @@ body {
 /* Fix for very small screens */
 @media screen and (max-width: 380px) {
   .logo-size-iraq {
-    width: 60px;
+    width: 80px;
   }
 
   .logo-size-codeavour {
