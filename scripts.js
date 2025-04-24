@@ -406,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImg = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const projectImage = document.querySelector('.project-image-container');
     
     // Open lightbox when gallery item is clicked
     galleryItems.forEach(item => {
@@ -420,6 +421,20 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
     });
+    
+    // Open lightbox when project image is clicked
+    if (projectImage) {
+        projectImage.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+            setTimeout(() => {
+                lightbox.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    }
     
     // Close lightbox when close button is clicked
     lightboxClose.addEventListener('click', function() {

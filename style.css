@@ -1228,3 +1228,21 @@ body {
   color: #5f2b7e;
   filter: drop-shadow(0 2px 3px rgba(95, 43, 126, 0.3));
 }
+
+/* Project image hover effects matching gallery */
+.project-image-container {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.project-image-container:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-image-container:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.project-image {
+  transition: transform 0.3s ease;
+}
