@@ -1210,3 +1210,21 @@ body {
 .gallery-item {
   cursor: pointer;
 }
+
+/* Theme icon styling */
+.theme-icon {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(95, 43, 126, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: pulse-glow 3s infinite;
+}
+
+.theme-icon svg {
+  color: #5f2b7e;
+  filter: drop-shadow(0 2px 3px rgba(95, 43, 126, 0.3));
+}

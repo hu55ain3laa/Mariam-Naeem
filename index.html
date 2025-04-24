@@ -234,24 +234,30 @@
             data-aos-duration="800"
             data-aos-delay="200"
           >
-            <h2
-              class="text-xl sm:text-2xl font-bold text-purple-dark section-title"
-            >
-              About
-            </h2>
-            <p class="text-gray-700 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-              dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed
-              auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in
-              nulla enim. Phasellus molestie magna non est bibendum non
-              venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.
-              Mauris iaculis porttitor posuere. Praesent id metus massa, ut
-              blandit odio.
-            </p>
+            <div class="flex justify-center items-center mb-6">
+              <div class="bg-purple-light px-6 py-3 rounded-full shadow-lg transform hover:scale-105 transition-transform">
+                <h2 class="text-xl sm:text-2xl font-bold text-white m-0 inline-flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  Project Theme
+                </h2>
+              </div>
+            </div>
+            <div class="glass-card p-6 sm:p-8 rounded-lg transition mt-2 text-center">
+              <div class="flex flex-col items-center justify-center">
+                <div class="theme-icon mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-purple-dark mb-3">Good Health and Wellbeing</h3>
+              </div>
+            </div>
           </div>
 
           <div
-            class="flex flex-col md:flex-row flex-col-mobile gap-md justify-center"
+            class="flex flex-col items-center justify-center gap-4 w-full"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="300"
@@ -259,7 +265,7 @@
             <a
               href="#"
               onclick="downloadFile('./assets/cv.docx', 'cv.docx'); return false;"
-              class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition"
+              class="download-btn flex items-center justify-center text-white py-2 px-6 rounded-lg transition w-full sm:w-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -280,7 +286,7 @@
             <a
               href="#"
               onclick="downloadFile('./assets/pre.pptx', 'presentation.pptx'); return false;"
-              class="download-btn flex items-center text-white py-2 px-6 rounded-lg transition"
+              class="download-btn flex items-center justify-center text-white py-2 px-6 rounded-lg transition w-full sm:w-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +338,7 @@
               data-aos-delay="100"
             >
               <img
-                src="assets/a2.png"
+                src="assets/p4.jpg"
                 alt="Project Image"
                 class="w-full h-auto rounded-lg shadow-lg"
               />
@@ -387,19 +393,19 @@
           Project Gallery
         </h2>
         <div class="grid" style="overflow: hidden">
-          <div class="gallery-item" style="overflow: hidden;">
+          <div class="gallery-item" style="overflow: hidden">
             <img
-              src="./assets/projectdemo.webp"
-              alt="Brain MRI Scan" 
+              src="./assets/p1.jpg"
+              alt="Brain MRI Scan"
               class="rounded-lg shadow-lg transition gallery-image"
               data-aos="zoom-in"
               data-aos-duration="800"
               data-aos-delay="100"
             />
           </div>
-          <div class="gallery-item" style="overflow: hidden;">
+          <div class="gallery-item" style="overflow: hidden">
             <img
-              src="./assets/projectdemo.webp"
+              src="./assets/p2.jpg"
               alt="AI Brain Tumor Detection"
               class="rounded-lg shadow-lg transition gallery-image"
               data-aos="zoom-in"
@@ -407,9 +413,9 @@
               data-aos-delay="200"
             />
           </div>
-          <div class="gallery-item" style="overflow: hidden;">
+          <div class="gallery-item" style="overflow: hidden">
             <img
-              src="./assets/projectdemo.webp"
+              src="./assets/p3.jpg"
               alt="AI Neural Network Medical Analysis"
               class="rounded-lg shadow-lg transition gallery-image"
               data-aos="zoom-in"
@@ -486,7 +492,15 @@
         <div class="flex flex-col justify-center items-center">
           <div class="text-center">
             <p>© 2025 - Iraq Team - Codeavour 6. All rights reserved.</p>
-            <p class="text-center">Developed by <a href="https://hu55ain3laa.site" style="color: #ffe007;" target="_blank">Hussein Ghadhban</a></p>
+            <p class="text-center">
+              Developed by
+              <a
+                href="https://hu55ain3laa.site"
+                style="color: #ffe007"
+                target="_blank"
+                >Hussein Ghadhban</a
+              >
+            </p>
           </div>
         </div>
       </div>
@@ -495,7 +509,12 @@
     <!-- Image Lightbox Modal -->
     <div id="imageLightbox" class="lightbox">
       <button id="lightboxClose" class="lightbox-close">&times;</button>
-      <img id="lightboxImage" class="lightbox-content" src="" alt="Enlarged Image">
+      <img
+        id="lightboxImage"
+        class="lightbox-content"
+        src=""
+        alt="Enlarged Image"
+      />
     </div>
 
     <!-- AOS JavaScript -->
